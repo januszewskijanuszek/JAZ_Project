@@ -10,4 +10,13 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
+
+//    @Bean
+//    CommandLineRunner commandLineRunner(UserRepository userRepository){
+//        return args -> {
+//            User user = new User("user", "user111", "user@gmail.com");
+//            userRepository.save(user);
+//        };
+//    }
+
 }
