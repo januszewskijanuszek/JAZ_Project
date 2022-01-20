@@ -18,6 +18,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    // Tells to service what they want
     @GetMapping
     public List<User> getUsers(){
         return userService.getUsers();

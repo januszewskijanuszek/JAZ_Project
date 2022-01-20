@@ -1,15 +1,22 @@
 package com.example.demo.user;
 
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Service
+@Component
 public class UserService {
 
+    private final UserRepository userRepository;
+
+    @Autowired
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
+    @Autowired
     public List<User> getUsers(){
-        return List.of(
-                new User(1L, "Marik", "1234", "marik@gmail.com")
-        );
+        return List.of(new User());
     }
 }

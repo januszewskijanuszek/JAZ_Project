@@ -1,25 +1,51 @@
 package com.example.demo.user;
 
+import javax.persistence.*;
+
+@Entity(name = "users")
+@Table
 public class User {
+
+    @Id
+    @SequenceGenerator(
+            name = "user_sequence",
+            sequenceName = "user_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "user_sequence"
+    )
+    @Column(name = "id",
+            updatable = false)
     private Long id;
+
+    @Column(name = "login",
+            nullable = false,
+            columnDefinition = "TEXT")
     private String login;
+
+    @Column(name = "password",
+            nullable = false,
+            columnDefinition = "TEXT")
     private String password;
+
+    @Column(name = "email",
+            nullable = false,
+            columnDefinition = "TEXT")
     private String email;
 
+    // Constructors
+    public User(String login,
+                String password,
+                String email) {
+        this.login = login;
+        this.password = password;
+        this.email = email;
+    }
+
     public User() {
-    }
 
-    public User(Long id, String login, String password, String email) {
-        this.id = id;
-        this.login = login;
-        this.password = password;
-        this.email = email;
-    }
-
-    public User(String login, String password, String email) {
-        this.login = login;
-        this.password = password;
-        this.email = email;
     }
 
     public Long getId() {
