@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Books</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="title">
+            Available  books
+        </div>
+        <div class="footer">
+            <table class="footer">
+                <tr>
+                    <th class="footer"><a th:href="@{/}">Menu</a></th>
+                    <th class="footer"><a th:href="@{unBooks}">UnAvailable Books</a></th>
+                </tr>
+            </table>
+        </div>
+        <div class="content">
+            <table>
+                <tr>
+<!--                    <th>ID</th>-->
+                    <th>Name</th>
+                    <th>Release</th>
+                    <th>Author</th>
+<!--                    <th>Taken</th>-->
+                </tr>
+                <tr th:each="item: ${avBooks}">
+<!--                    <td th:text="${item.id}"></td>-->
+                    <td th:text="${item.name}"></td>
+                    <td th:text="${item.release}"></td>
+                    <td th:text="${item.author}"></td>
+<!--                    <td th:text="${item.taken}"></td>-->
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

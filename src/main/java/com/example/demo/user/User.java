@@ -4,8 +4,9 @@ import javax.persistence.*;
 
 @Entity(name = "users")
 @Table
-public class User {
+public class User{
 
+    // ID
     @Id
     @SequenceGenerator(
             name = "user_sequence",
@@ -20,16 +21,19 @@ public class User {
             updatable = false)
     private Long id;
 
+    // Login
     @Column(name = "login",
             nullable = false,
             columnDefinition = "TEXT")
     private String login;
 
+    // Password
     @Column(name = "password",
             nullable = false,
             columnDefinition = "TEXT")
     private String password;
 
+    // Email
     @Column(name = "email",
             nullable = false,
             columnDefinition = "TEXT")
@@ -44,9 +48,7 @@ public class User {
         this.email = email;
     }
 
-    public User() {
-
-    }
+    public User() {}
 
     public Long getId() {
         return id;

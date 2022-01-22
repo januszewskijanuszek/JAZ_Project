@@ -1,12 +1,38 @@
 package com.example.demo.item;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity(name = "items")
+@Table
 public class Item {
+    @Id
+    @SequenceGenerator(
+            name = "item_sequence",
+            sequenceName = "item_sequence",
+            allocationSize = 1
+    )
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "item_sequence"
+    )
+    @Column(name = "id",
+            updatable = false)
     private Long id;
+
+    @Column(name = "name",
+           nullable = false)
     private String name;
+
+    @Column(name = "release",
+            nullable = false)
     private Date release;
+
+    @Column(name = "author")
     private String author;
+
+    @Column(name = "taken",
+            nullable = false)
     private boolean taken;
 
     public Item(String name, Date release, String author, boolean taken) {
