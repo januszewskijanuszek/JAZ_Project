@@ -23,6 +23,24 @@ public class ItemService {
         return itemRepository.findAll();
     }
 
+    public Item getById(Long id){
+        return itemRepository.getOne(id);
+    }
+
+    public void createItem(Item newItem){
+        itemRepository.save(newItem);
+    }
+
+    public void deleteItem(Long id){
+        itemRepository.deleteById(id);
+    }
+
+    public void toggleTaken(Long id){
+        Item item = itemRepository.getOne(id);
+        item.setTaken(!item.isTaken());
+        itemRepository.save(item);
+    }
+
     public List<Item> getAvaliableItems(boolean isTaken){
         List<Item> items = new ArrayList<>();
         for (Item item: itemRepository.findAll()) {

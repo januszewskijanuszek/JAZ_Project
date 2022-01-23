@@ -7,15 +7,7 @@ import java.util.Date;
 @Table
 public class Item {
     @Id
-    @SequenceGenerator(
-            name = "item_sequence",
-            sequenceName = "item_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "item_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id",
             updatable = false)
     private Long id;
@@ -24,8 +16,7 @@ public class Item {
            nullable = false)
     private String name;
 
-    @Column(name = "release",
-            nullable = false)
+    @Column(name = "release")
     private Date release;
 
     @Column(name = "author")
@@ -40,6 +31,11 @@ public class Item {
         this.release = release;
         this.author = author;
         this.taken = taken;
+    }
+
+    public Item(String name, String author) {
+        this.name = name;
+        this.author = author;
     }
 
     public Item() {

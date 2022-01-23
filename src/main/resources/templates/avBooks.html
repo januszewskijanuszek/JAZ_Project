@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <meta charset="UTF-8">
     <title>Books</title>
     <link rel="stylesheet" href="../style.css">
@@ -13,26 +13,25 @@
         <div class="footer">
             <table class="footer">
                 <tr>
-                    <th class="footer"><a th:href="@{/}">Menu</a></th>
-                    <th class="footer"><a th:href="@{unBooks}">UnAvailable Books</a></th>
+                    <div class="component"> <button class="button" onclick="window.location.href='/'">Menu</button></div>
+                    <div class="component"><button class="button" onclick="window.location.href='/unBooks'">UnAvailable Books</button></div>
+                    <div class="component"><button class="button" onclick="window.location.href='/addBooks'">Add Book</button></div>
                 </tr>
             </table>
         </div>
         <div class="content">
             <table>
                 <tr>
-<!--                    <th>ID</th>-->
                     <th>Name</th>
-                    <th>Release</th>
                     <th>Author</th>
-<!--                    <th>Taken</th>-->
+                    <th></th>
+                    <th></th>
                 </tr>
                 <tr th:each="item: ${avBooks}">
-<!--                    <td th:text="${item.id}"></td>-->
                     <td th:text="${item.name}"></td>
-                    <td th:text="${item.release}"></td>
                     <td th:text="${item.author}"></td>
-<!--                    <td th:text="${item.taken}"></td>-->
+                    <td><a th:href="${'delete/'+item.id}">Delete</a> </td>
+                    <td><a th:href="${'take/'+item.id}">Take</a></td>
                 </tr>
             </table>
         </div>
