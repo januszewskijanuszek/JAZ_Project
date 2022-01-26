@@ -30,8 +30,8 @@
                 <tr th:each="item: ${avBooks}">
                     <td th:text="${item.name}"></td>
                     <td th:text="${item.author}"></td>
-                    <td><a th:href="${'delete/'+item.id}">Delete</a> </td>
-                    <td><a th:href="${'take/'+item.id}">Take</a></td>
+                    <td><div class="button"><a th:href="${'delete/'+item.id}">Delete</a></div> </td>
+                    <td><div class="button"><a th:href="${'take/'+item.id}">Take</a></div> </td>
                 </tr>
             </table>
         </div>
